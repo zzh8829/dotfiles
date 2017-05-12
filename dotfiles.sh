@@ -6,4 +6,5 @@ rsync --archive --verbose \
 	--include ".*" \
 	--include ".*/**" \
 	--exclude '*' \
+	"$@" \
 	. ~/

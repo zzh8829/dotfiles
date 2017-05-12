@@ -114,6 +114,7 @@ brew install speedtest_cli
 # heroku update
 
 brew install scmpuff
+brew install gpg
 
 # Install Cask
 brew tap caskroom/cask

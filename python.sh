@@ -14,6 +14,8 @@ echo "Setting up virtual environments."
 pip3 install virtualenv
 pip3 install virtualenvwrapper
 
+source /usr/local/bin/virtualenvwrapper.sh
+
 ###############################################################################
 # Python 2 Virtual Enviroment                                                 #
 ###############################################################################

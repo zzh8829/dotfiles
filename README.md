@@ -19,4 +19,7 @@ git clone https://github.com/zzh8829/dotfiles.git && cd dotfiles
 ./homebrew.sh
 ./osx.sh
 ./sublime.sh
+
+cp -r /Volumes/Safe/gnupg/* ~/.gnupg  
+cp -r /Volumes/Safe/ssh/* ~/.ssh  
 ```
