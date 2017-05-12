@@ -266,4 +266,5 @@ function pingtest() {
 # ====================
 
 eval "$(scmpuff init -s)"
+export GPG_TTY=$(tty)
 
