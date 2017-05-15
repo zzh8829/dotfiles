@@ -147,6 +147,7 @@ alias j="jobs"
 alias p="cd ~/Projects"
 alias p1="cd ~/Projects"
 alias p2="cd /Volumes/Data/Projects"
+alias s="cd /Users/zihao/Library/Mobile\ Documents/com\~apple\~CloudDocs/Study"
 
 alias grim="git rebase -i master"
 alias octave="octave --no-gui"
@@ -272,3 +273,4 @@ export GPG_TTY=$(tty)
 
 export LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/extras/CUPTI/lib:/Applications/cuda/lib:$LD_LIBRARY_PATH
 
+alias nb="workon py3 && jupyter notebook"
