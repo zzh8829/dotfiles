@@ -270,3 +270,5 @@ function pingtest() {
 eval "$(scmpuff init -s)"
 export GPG_TTY=$(tty)
 
+export LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/extras/CUPTI/lib:/Applications/cuda/lib:$LD_LIBRARY_PATH
+
