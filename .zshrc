@@ -137,13 +137,13 @@ alias ..="cd .."
 alias ...="cd ../.."
 
 # Shortcuts
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
 alias h="history"
 alias j="jobs"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
-alias p1="cd ~/Projects"
-alias p2="cd /Volumes/Data/Projects"
+alias r="cd ~/Repos"
+alias pd="cd /Volumes/Data/Projects"
 alias s="cd /Users/zihao/Library/Mobile\ Documents/com\~apple\~CloudDocs/Study"
 
 alias grim="git rebase -i master"
