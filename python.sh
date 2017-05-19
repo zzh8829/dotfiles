@@ -65,6 +65,7 @@ pip install scipy
 pip install seaborn
 pip install sympy
 
+pip install pillow
 pip install jupyter
 
 pip install tensorflow

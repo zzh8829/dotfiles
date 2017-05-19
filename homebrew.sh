@@ -116,6 +116,8 @@ brew install speedtest_cli
 brew install scmpuff
 brew install gpg
 
+brew install ffmpeg
+
 # Install Cask
 brew tap caskroom/cask
 
