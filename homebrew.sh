@@ -156,7 +156,7 @@ brew cask install --appdir="/Applications" google-cloud-sdk
 #brew cask install --appdir="/Applications" mactex
 
 # Install Docker, which requires virtualbox
-brew install docker
+brew cask install --appdir="/Applications" docker
 # brew install boot2docker
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins

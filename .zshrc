@@ -271,3 +271,5 @@ export GPG_TTY=$(tty)
 export LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/extras/CUPTI/lib:/Applications/cuda/lib:$LD_LIBRARY_PATH
 
 alias nb="workon py3 && jupyter notebook"
+
+source ~/.virtualenvs/py3/bin/activate
