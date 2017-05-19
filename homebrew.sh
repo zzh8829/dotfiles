@@ -23,11 +23,11 @@ brew upgrade
 
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-brew install coreutils
-sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+# brew install coreutils
+# sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
 # Install some other useful utilities like `sponge`.
-brew install moreutils
+# brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
@@ -43,8 +43,10 @@ brew install python3
 # Install more recent versions of some OS X tools.
 brew install vim --with-override-system-vi
 brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
+# brew install homebrew/dupes/openssh
+# brew install homebrew/dupes/screen
+
+brew install tmux
 
 # Install font tools.
 # brew tap bramstein/webfonttools
@@ -115,6 +117,8 @@ brew install speedtest_cli
 
 brew install scmpuff
 brew install gpg
+brew install yarn
+brew install kubectl
 
 brew install ffmpeg
 
@@ -146,13 +150,15 @@ brew cask install --appdir="/Applications" 1password
 #brew cask install --appdir="/Applications" gimp
 #brew cask install --appdir="/Applications" inkscape
 
- brew cask install --appdir="/Applications" discord
+brew cask install --appdir="/Applications" discord
+brew cask install --appdir="/Applications" spotify
+brew cask install --appdir="/Applications" google-cloud-sdk
 
 #Remove comment to install LaTeX distribution MacTeX
 #brew cask install --appdir="/Applications" mactex
 
 # Install Docker, which requires virtualbox
-brew install docker
+brew cask install --appdir="/Applications" docker
 # brew install boot2docker
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins

@@ -20,6 +20,12 @@ git clone https://github.com/zzh8829/dotfiles.git && cd dotfiles
 ./osx.sh
 ./sublime.sh
 
-cp -r /Volumes/Safe/gnupg/* ~/.gnupg  
-cp -r /Volumes/Safe/ssh/* ~/.ssh  
+cp -r /Volumes/Safe/gnupg/* ~/.gnupg
+cp -r /Volumes/Safe/ssh/* ~/.ssh
+
+gcloud auth login
+gcloud components install kubectl
+gcloud config set project gcloud
+gcloud config set compute/zone us-west1-a
+gcloud container clusters get-credentials gk
 ```
