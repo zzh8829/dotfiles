@@ -122,6 +122,11 @@ brew install kubectl
 
 brew install ffmpeg
 
+brew install golang
+brew install cmake
+brew install tesseract
+
+
 # Install Cask
 brew tap caskroom/cask
 
@@ -159,7 +164,10 @@ brew cask install --appdir="/Applications" google-cloud-sdk
 
 # Install Docker, which requires virtualbox
 brew cask install --appdir="/Applications" docker
+brew cask install --appdir="/Applications" osxfuse
 # brew install boot2docker
+
+brew install sshfs
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package

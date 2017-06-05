@@ -75,6 +75,12 @@ pip install requests
 pip install bs4
 pip install Flask
 
+pip install pytesseract
+pip install opencv-python
+
+pip install pyobjc
+pip install pyautogui
+
 echo "------------------------------"
 echo "Script completed."
 # echo "Usage: workon py2 for Python2"
