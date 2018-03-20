@@ -50,9 +50,9 @@ ZSH_THEME="zihao"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	plugins=(sublime zsh-autosuggestions docker kubectl)
+	plugins=(sublime zsh-autosuggestions docker kubectl extract colorize)
 else
-	plugins=(zsh-autosuggestions)
+	plugins=(zsh-autosuggestions extract)
 fi
 
 # User configuration
@@ -109,6 +109,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	# Homebrew
 	export PATH=/usr/local/sbin:$PATH
 
+  # Anaconda
+  # export PATH="$PATH":/usr/local/anaconda3/bin
+
 	# Link Homebrew casks in `/Applications` rather than `~/Applications`
 	export HOMEBREW_CASK_OPTS="--appdir=/Applications";
 
@@ -125,7 +128,7 @@ export PATH=~/bin:$PATH
 
 export GOPATH=~/go
 
-export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+export VIRTUALENVWRAPPER_PYTHON=$(which python)
 [ -s "/usr/local/bin/virtualenvwrapper.sh" ] && source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
@@ -267,6 +270,11 @@ function pingtest() {
 # ====================
 # ==     Other      ==
 # ====================
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+  source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+fi
 
 eval "$(scmpuff init -s)"
 export GPG_TTY=$(tty)

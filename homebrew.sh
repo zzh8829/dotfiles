@@ -156,6 +156,7 @@ brew cask install --appdir="/Applications" 1password
 #brew cask install --appdir="/Applications" gimp
 #brew cask install --appdir="/Applications" inkscape
 
+brew cask install --appdir="/Applications" skim
 brew cask install --appdir="/Applications" discord
 brew cask install --appdir="/Applications" spotify
 brew cask install --appdir="/Applications" google-cloud-sdk
