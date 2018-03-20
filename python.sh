@@ -71,6 +71,9 @@ pip install jupyter
 pip install tensorflow
 pip install keras
 
+pip3 install http://download.pytorch.org/whl/torch-0.3.0.post4-cp36-cp36m-macosx_10_7_x86_64.whl
+pip3 install torchvision
+
 pip install requests
 pip install bs4
 pip install Flask
@@ -80,6 +83,9 @@ pip install opencv-python
 
 pip install pyobjc
 pip install pyautogui
+
+pip install pipreqs
+pip install absl-py
 
 echo "------------------------------"
 echo "Script completed."
