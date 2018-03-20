@@ -126,6 +126,7 @@ brew install golang
 brew install cmake
 brew install tesseract
 
+brew install glew
 
 # Install Cask
 brew tap caskroom/cask
@@ -165,6 +166,8 @@ brew cask install --appdir="/Applications" google-cloud-sdk
 # Install Docker, which requires virtualbox
 brew cask install --appdir="/Applications" docker
 brew cask install --appdir="/Applications" osxfuse
+
+brew cask install the-unarchiver
 # brew install boot2docker
 
 brew install sshfs

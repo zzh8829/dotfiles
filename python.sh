@@ -81,6 +81,8 @@ pip install opencv-python
 pip install pyobjc
 pip install pyautogui
 
+pip install progress
+
 echo "------------------------------"
 echo "Script completed."
 # echo "Usage: workon py2 for Python2"

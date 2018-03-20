@@ -103,6 +103,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	# CS350
 	export PATH=$PATH:~/Projects/cs350/sys161/bin:~/Projects/cs350/bin
 
+	# CUDA
+	export PATH=$PATH:/usr/local/cuda/bin
+
 	# Homebrew
 	export PATH=/usr/local/sbin:$PATH
 
