@@ -29,20 +29,20 @@ brew upgrade
 # Install some other useful utilities like `sponge`.
 # brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
-brew install findutils
+# brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
+# brew install gnu-sed --with-default-names
 
 # Install `wget` with IRI support.
 brew install wget --with-iri
 
 # Install Python
 brew install python
-brew install python3
+# brew install python3
 
 # Install more recent versions of some OS X tools.
 brew install vim --with-override-system-vi
-brew install homebrew/dupes/grep
+# brew install homebrew/dupes/grep
 # brew install homebrew/dupes/openssh
 # brew install homebrew/dupes/screen
 
@@ -99,7 +99,7 @@ brew install p7zip
 # brew install rhino
 brew install speedtest_cli
 # brew install ssh-copy-id
-# brew install tree
+brew install tree
 # brew install webkit2png
 # brew install zopfli
 # brew install pkg-config libffi
@@ -118,7 +118,7 @@ brew install speedtest_cli
 brew install scmpuff
 brew install gpg
 brew install yarn
-brew install kubectl
+# brew install kubectl
 
 brew install ffmpeg
 
@@ -131,42 +131,44 @@ brew install glew
 # Install Cask
 brew tap caskroom/cask
 
+brew cask install sublime-text
+
 # Core casks
-# brew cask install --appdir="/Applications" alfred
-# brew cask install --appdir="~/Applications" iterm2
-brew cask install --appdir="~/Applications" java
-brew cask install --appdir="~/Applications" xquartz
-brew cask install --appdir="/Applications" bettertouchtool
+# brew cask install alfred
+# brew cask install iterm2
+# brew cask install java
+brew cask install xquartz
+brew cask install bettertouchtool
 
 # Development tool casks
-brew cask install --appdir="/Applications" sublime-text
-# brew cask install --appdir="/Applications" atom
-# brew cask install --appdir="/Applications" virtualbox
-# brew cask install --appdir="/Applications" vagrant
-# brew cask install --appdir="/Applications" macdown
+brew cask install sublime-text
+# brew cask install atom
+# brew cask install virtualbox
+# brew cask install vagrant
+# brew cask install macdown
 
 # Misc casks
-brew cask install --appdir="/Applications" google-chrome
-# brew cask install --appdir="/Applications" firefox
-brew cask install --appdir="/Applications" skype
-brew cask install --appdir="/Applications" slack
-# brew cask install --appdir="/Applications" dropbox
-# brew cask install --appdir="/Applications" evernote
-brew cask install --appdir="/Applications" 1password
-#brew cask install --appdir="/Applications" gimp
-#brew cask install --appdir="/Applications" inkscape
+brew cask install google-chrome
+# brew cask install firefox
+# brew cask install skype
+brew cask install slack
+# brew cask install dropbox
+# brew cask install evernote
+brew cask install 1password
+#brew cask install gimp
+#brew cask install inkscape
 
-brew cask install --appdir="/Applications" skim
-brew cask install --appdir="/Applications" discord
-brew cask install --appdir="/Applications" spotify
-brew cask install --appdir="/Applications" google-cloud-sdk
+brew cask install skim
+brew cask install discord
+brew cask install spotify
+brew cask install google-cloud-sdk
 
 #Remove comment to install LaTeX distribution MacTeX
-#brew cask install --appdir="/Applications" mactex
+#brew cask install mactex
 
 # Install Docker, which requires virtualbox
-brew cask install --appdir="/Applications" docker
-brew cask install --appdir="/Applications" osxfuse
+brew cask install docker
+brew cask install osxfuse
 
 brew cask install the-unarchiver
 # brew install boot2docker
@@ -174,7 +176,7 @@ brew cask install the-unarchiver
 brew install sshfs
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package quicklookase qlvideo
 
 # Remove outdated versions from the cellar.
 brew cleanup

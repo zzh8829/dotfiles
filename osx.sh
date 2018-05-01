@@ -31,8 +31,8 @@ defaults write com.apple.systemuiserver menuExtras -array \
     "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
     "/System/Library/CoreServices/Menu Extras/Volume.menu" \
 
-defaults write -g InitialKeyRepeat -int 10
-defaults write -g KeyRepeat -int 1
+# defaults write -g InitialKeyRepeat -int 10
+# defaults write -g KeyRepeat -int 1
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
