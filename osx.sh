@@ -31,6 +31,9 @@ defaults write com.apple.systemuiserver menuExtras -array \
     "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
     "/System/Library/CoreServices/Menu Extras/Volume.menu" \
 
+
+defaults write .GlobalPreferences com.apple.mouse.scaling -1
+
 # defaults write -g InitialKeyRepeat -int 10
 # defaults write -g KeyRepeat -int 1
 

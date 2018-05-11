@@ -188,9 +188,14 @@ alias egrep='egrep --color=auto'
 alias sudo='sudo '
 
 # IP addresses
-alias ip="curl -4 https://icanhazip.com/"
+alias ip4="curl -4 https://icanhazip.com/"
 alias ip6="curl -6 https://icanhazip.com/"
-alias iplocal="ipconfig getifaddr en0"
+
+if [ -f /sbin/ifconfig ]; then
+  alias iplocal="ifconfig | grep 'inet ' | awk '{print $2}'"
+else
+  alias iplocal="ip address | grep 'inet ' | awk '{print $2}'"
+fi
 
 # Canonical hex dump; some systems have this symlinked
 command -v hd > /dev/null || alias hd="hexdump -C"
@@ -277,6 +282,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 eval "$(scmpuff init -s)"
+alias gl=tig
 export GPG_TTY=$(tty)
 
 export LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/extras/CUPTI/lib:/Applications/cuda/lib:$LD_LIBRARY_PATH
