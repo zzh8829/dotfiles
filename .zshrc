@@ -272,6 +272,19 @@ function pingtest() {
   ping -c20 google.com
 }
 
+function pip-save() {
+    local pkg=$1
+
+    if [ -z "$1" ]; then
+        echo "usage: pips <pkg name>"
+        return 1
+    fi
+
+    local _ins="pip install $pkg"
+    eval $_ins
+    pip freeze | grep $pkg -i >> requirements.txt
+}
+
 # ====================
 # ==     Other      ==
 # ====================

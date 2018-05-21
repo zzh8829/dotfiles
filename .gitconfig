@@ -49,7 +49,7 @@
 [commit]
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
+	gpgsign = false
 
 [diff]
 
@@ -76,10 +76,8 @@
 
 [push]
 
-	# Use the Git 1.x.x default to avoid errors on machines with old Git
-	# installations. To use `simple` instead, add this to your `~/.extra` file:
-	# `git config --global push.default simple`. See http://git.io/mMah-w.
-	default = matching
+	# Push current branch to origin
+	default = current
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
 
