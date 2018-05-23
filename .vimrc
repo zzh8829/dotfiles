@@ -83,3 +83,29 @@ if has("autocmd")
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
 
+call plug#begin('~/.vim/plugged')
+
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'imkmf/ctrlp-branches'
+Plug 'hara/ctrlp-colorscheme'
+
+call plug#end()
+
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+let g:ycm_key_list_stop_completion = ['<CR>']
+
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd FileType sh,python,c,java,javascript  :call <SID>StripTrailingWhitespaces()
+
