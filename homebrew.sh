@@ -176,6 +176,8 @@ brew cask install the-unarchiver
 
 brew install sshfs
 
+brew install the_silver_searcher
+
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package quicklookase qlvideo
 
