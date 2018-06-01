@@ -294,11 +294,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 fi
 
-if [[ `type scmpuff` ]]; then
+if type scmpuff &> /dev/null; then
   eval "$(scmpuff init -s)"
 fi
 
-if [[ `type tig` ]]; then
+if type tig &> /dev/null; then
   alias gl=tig
 fi
 
