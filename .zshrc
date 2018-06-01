@@ -128,7 +128,7 @@ export PATH=~/bin:$PATH
 
 export GOPATH=~/go
 
-export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+export VIRTUALENVWRAPPER_PYTHON=$(which python)
 [ -s "/usr/local/bin/virtualenvwrapper.sh" ] && source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
@@ -294,12 +294,22 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 fi
 
-eval "$(scmpuff init -s)"
-alias gl=tig
+if [[ `type scmpuff` ]]; then
+  eval "$(scmpuff init -s)"
+fi
+
+if [[ `type tig` ]]; then
+  alias gl=tig
+fi
+
 export GPG_TTY=$(tty)
 
-export LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/extras/CUPTI/lib:/Applications/cuda/lib:$LD_LIBRARY_PATH
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/extras/CUPTI/lib:/Applications/cuda/lib:$LD_LIBRARY_PATH
+fi
 
 alias nb="workon py3 && jupyter notebook"
 
-source ~/.virtualenvs/py3/bin/activate
+if [ -e "~/.virtualenvs/py3/bin/activate" ]; then
+  source ~/.virtualenvs/py3/bin/activate
+fi
