@@ -74,6 +74,10 @@ defaults write com.apple.screencapture type -string "png"
 # Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
 
+## VS Code
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+
 # Set terminal theme to Pro
 osascript <<EOD
 

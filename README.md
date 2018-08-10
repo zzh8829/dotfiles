@@ -17,7 +17,7 @@ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh
 git clone https://github.com/zzh8829/dotfiles.git && cd dotfiles
 ./dotfiles.sh
 ./homebrew.sh
-./osx.sh
+./macos.sh
 ./sublime.sh
 
 cp -r /Volumes/Safe/gnupg/* ~/.gnupg
