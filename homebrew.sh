@@ -132,7 +132,7 @@ brew install glew
 # Install Cask
 brew tap caskroom/cask
 
-brew cask install sublime-text
+brew cask install visual-studio-code
 
 # Core casks
 # brew cask install alfred
@@ -142,7 +142,6 @@ brew cask install xquartz
 brew cask install bettertouchtool
 
 # Development tool casks
-brew cask install sublime-text
 # brew cask install atom
 # brew cask install virtualbox
 # brew cask install vagrant

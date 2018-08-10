@@ -127,6 +127,7 @@ export PATH='./node_modules/.bin':$PATH
 export PATH=~/bin:$PATH
 
 export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
 
 export VIRTUALENVWRAPPER_PYTHON=$(which python)
 [ -s "/usr/local/bin/virtualenvwrapper.sh" ] && source /usr/local/bin/virtualenvwrapper.sh
