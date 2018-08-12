@@ -100,8 +100,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	# Racket
 	export PATH=$PATH:/Applications/Racket\ v6.1/bin
 
-	# CS350
-	export PATH=$PATH:~/Projects/cs350/sys161/bin:~/Projects/cs350/bin
+  # scripts
+  export PATH=$PATH:~/Repos/config/scripts
 
 	# CUDA
 	export PATH=$PATH:/usr/local/cuda/bin
@@ -129,7 +129,7 @@ export PATH=~/bin:$PATH
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 
-export VIRTUALENVWRAPPER_PYTHON=$(which python)
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 [ -s "/usr/local/bin/virtualenvwrapper.sh" ] && source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
@@ -148,13 +148,16 @@ alias h="history"
 alias j="jobs"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/Projects"
+alias p="cd /Users/zihao/Library/Mobile\ Documents/com\~apple\~CloudDocs/Projects"
+export PROJECTS=/Users/zihao/Library/Mobile\ Documents/com\~apple\~CloudDocs/Projects
 alias r="cd ~/Repos"
 alias pd="cd /Volumes/Data/Projects"
 alias s="cd /Users/zihao/Library/Mobile\ Documents/com\~apple\~CloudDocs/Study"
 
 alias grim="git rebase -i master"
 alias octave="octave --no-gui"
+
+alias dotfiles="cd ~/Repos/dotfiles && ./dotfiles.sh && cd -"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then
@@ -284,6 +287,10 @@ function pip-save() {
     local _ins="pip install $pkg"
     eval $_ins
     pip freeze | grep $pkg -i >> requirements.txt
+}
+
+mksecret() {
+  python -c "import random,string;print(''.join([random.SystemRandom().choice(\"{}{}\".format(string.ascii_letters, string.digits)) for i in range(64)]))" | pbcopy;
 }
 
 # ====================
