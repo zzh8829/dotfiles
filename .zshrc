@@ -59,6 +59,10 @@ fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
+if [[ $(uname -r) = *"Microsoft"* ]]; then
+  export ZSH_DISABLE_COMPFIX=true
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -91,7 +95,7 @@ export LANG=en_US.UTF-8
 # ======================
 
 # Default Path
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	# LaTeX
@@ -300,6 +304,13 @@ mksecret() {
 if [[ "$OSTYPE" == "darwin"* ]]; then
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+fi
+
+if [[ $(uname -r) = *"Microsoft"* ]]; then
+  alias docker="docker.exe"
+  alias docker-compose="docker-compose.exe"
+  alias cmd="cmd.exe"
+  alias cd="cd -P"
 fi
 
 if type scmpuff &> /dev/null; then
