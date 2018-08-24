@@ -116,6 +116,7 @@ brew install tree
 # brew install heroku-toolbelt
 # heroku update
 
+brew install ctags
 brew install scmpuff
 brew install gpg
 brew install yarn
