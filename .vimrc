@@ -86,12 +86,19 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'imkmf/ctrlp-branches'
 Plug 'hara/ctrlp-colorscheme'
 
 call plug#end()
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+map <C-n> :NERDTreeToggle<CR>
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
