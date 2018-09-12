@@ -1,13 +1,17 @@
+set encoding=utf-8
+
 " Color Scheme
 set background=dark
 colorscheme molokai
 
 " Indentation
+filetype plugin indent on
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
 set smartindent
 set smarttab
+set expandtab
 
 " moving
 set nocompatible
@@ -88,10 +92,15 @@ call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-sleuth'
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'imkmf/ctrlp-branches'
 Plug 'hara/ctrlp-colorscheme'
+
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
 call plug#end()
 
@@ -115,4 +124,8 @@ function! <SID>StripTrailingWhitespaces()
 endfun
 
 autocmd FileType sh,python,c,java,javascript  :call <SID>StripTrailingWhitespaces()
+
+nmap <C-_> <leader>c<Space>
+vmap <C-_> <leader>c<Space>
+
 
