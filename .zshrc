@@ -332,3 +332,5 @@ alias nb="workon py3 && jupyter notebook"
 if [ -e "~/.virtualenvs/py3/bin/activate" ]; then
   source ~/.virtualenvs/py3/bin/activate
 fi
+
+alias t=tmux
