@@ -172,6 +172,7 @@ brew cask install docker
 brew cask install osxfuse
 
 brew cask install the-unarchiver
+brew cask install grandperspective
 # brew install boot2docker
 
 brew install sshfs
