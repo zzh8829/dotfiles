@@ -113,6 +113,8 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+let g:ctrlp_show_hidden = 1
+
 
 let g:ycm_key_list_stop_completion = ['<CR>']
 

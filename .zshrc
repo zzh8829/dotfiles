@@ -334,3 +334,6 @@ if [ -e "~/.virtualenvs/py3/bin/activate" ]; then
 fi
 
 alias t=tmux
+alias gst="git stash"
+alias gsa="git stash apply"
+
