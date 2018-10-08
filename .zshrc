@@ -336,4 +336,5 @@ fi
 alias t=tmux
 alias gst="git stash"
 alias gsa="git stash apply"
+alias gsp="git stash pop"
 
