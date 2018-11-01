@@ -288,7 +288,7 @@ function pip-save() {
         return 1
     fi
 
-    local _ins="pip install $pkg"
+    local _ins="pip install --upgrade $pkg"
     eval $_ins
     pip freeze | grep $pkg -i >> requirements.txt
 }
