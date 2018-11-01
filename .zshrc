@@ -293,6 +293,19 @@ function pip-save() {
     pip freeze | grep $pkg -i >> requirements.txt
 }
 
+function pip3-save() {
+    local pkg=$1
+
+    if [ -z "$1" ]; then
+        echo "usage: pips <pkg name>"
+        return 1
+    fi
+
+    local _ins="pip3 install --upgrade $pkg"
+    eval $_ins
+    pip3 freeze | grep $pkg -i >> requirements.txt
+}
+
 mksecret() {
   python -c "import random,string;print(''.join([random.SystemRandom().choice(\"{}{}\".format(string.ascii_letters, string.digits)) for i in range(64)]))" | pbcopy;
 }
