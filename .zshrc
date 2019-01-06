@@ -334,6 +334,10 @@ if type tig &> /dev/null; then
   alias gl=tig
 fi
 
+if type yarn &> /dev/null; then
+	export PATH="$(yarn global bin):$PATH"
+fi
+
 export GPG_TTY=$(tty)
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
