@@ -70,7 +70,6 @@ set showcmd
 set scrolloff=3
 set clipboard=unnamed
 set wildmenu
-set esckeys
 set backspace=indent,eol,start
 set ttyfast
 set encoding=utf-8 nobomb

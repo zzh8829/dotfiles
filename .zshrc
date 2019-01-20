@@ -68,12 +68,11 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if type nvim &> /dev/null; then
+	export EDITOR="nvim"
+	alias vim="nvim"
+	alias vi="nvim"
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -315,8 +314,10 @@ mksecret() {
 # ====================
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-  source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+	if [ -e '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk' ]; then
+		source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+		source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+	fi
 fi
 
 if [[ $(uname -r) = *"Microsoft"* ]]; then
@@ -352,6 +353,5 @@ fi
 
 alias t=tmux
 alias gst="git stash"
-alias gsa="git stash apply"
 alias gsp="git stash pop"
 

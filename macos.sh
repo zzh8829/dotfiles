@@ -62,12 +62,6 @@ defaults write NSGlobalDomain com.apple.springing.delay -float 0
 
 # Avoid creating .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-
-## Keyboard
-
-# defaults write -g InitialKeyRepeat -int 10
-# defaults write -g KeyRepeat -int 1
-
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
 
@@ -78,48 +72,18 @@ defaults write com.apple.screencapture disable-shadow -bool true
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
 
-# Set terminal theme to Pro
-osascript <<EOD
+# Enable Firewall
+sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
 
-tell application "Terminal"
+# Tap to click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-    local allOpenedWindows
-    local initialOpenedWindows
-    local windowID
-    set themeName to "Pro"
-
-    (* Store the IDs of all the open terminal windows. *)
-    set initialOpenedWindows to id of every window
-
-    (* Set the custom theme as the default terminal theme. *)
-    set default settings to settings set themeName
-
-    (* Get the IDs of all the currently opened terminal windows. *)
-    set allOpenedWindows to id of every window
-
-    repeat with windowID in allOpenedWindows
-
-        (* Close the additional windows that were opened in order
-           to add the custom theme to the list of terminal themes. *)
-        if initialOpenedWindows does not contain windowID then
-            close (every window whose id is windowID)
-
-        (* Change the theme for the initial opened terminal windows
-           to remove the need to close them in order for the custom
-           theme to be applied. *)
-        else
-            set current settings of tabs of (every window whose id is windowID) to settings set themeName
-        end if
-
-    end repeat
-
-end tell
-
-EOD
 
 for app in "Activity Monitor" "Dock" "Finder" "SystemUIServer"; do
 	killall "${app}" > /dev/null 2>&1
 done
 
-echo "Done"
+echo "Done (some change requires logout)"
 echo "------------------------------"
