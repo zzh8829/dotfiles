@@ -92,6 +92,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-commentary'
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'imkmf/ctrlp-branches'
