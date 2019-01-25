@@ -18,4 +18,12 @@ curl -L https://github.com/mroth/scmpuff/releases/download/v$SCMPUFF_VER/$SCMPUF
 mv $SCMPUFF_TMP/$SCMPUFF_TAR/scmpuff ~/bin
 rm -rf $SCMPUFF_TMP
 
+# neovim
+curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+chmod u+x nvim.appimage
+mv nvim.appimage ~/bin/nvim
+
+wget https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
+sudo dpkg -i ripgrep*.deb
+rm ripgrep*.deb
 

@@ -123,17 +123,15 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
 fi
 
-# Node Modules
-export PATH='./node_modules/.bin':$PATH
-
 # Home bin
 export PATH=~/bin:$PATH
+export PATH=~/.local/bin:$PATH
 
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-[ -s "/usr/local/bin/virtualenvwrapper.sh" ] && source /usr/local/bin/virtualenvwrapper.sh
+[ -e "/usr/local/bin/virtualenvwrapper.sh" ] && source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 
@@ -355,3 +353,6 @@ alias t=tmux
 alias gst="git stash"
 alias gsp="git stash pop"
 
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --ansi'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -4,17 +4,14 @@ set encoding=utf-8
 set background=dark
 colorscheme molokai
 
+let mapleader = "\<Space>"
+
 " Indentation
 filetype plugin indent on
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
 set smartindent
 set smarttab
-set expandtab
+set expandtab tabstop=2 shiftwidth=2 softtabstop=0
 
-" moving
-set nocompatible
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -43,10 +40,7 @@ set exrc
 set secure
 
 " searching
-set hlsearch
-set ignorecase
-set smartcase
-set incsearch
+set incsearch ignorecase smartcase hlsearch
 set showmatch
 set magic
 set gdefault
@@ -86,37 +80,61 @@ if has("autocmd")
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
 
+if has('nvim')
+  " Use Homebrew Python on Macs
+  if has('macunix')
+    let g:python3_host_prog='/usr/local/bin/python3'
+  endif
+
+  let g:python3_host_prog = get(g:, 'python3_host_prog', '/usr/bin/python3')
+endif
+
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-commentary'
 
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'imkmf/ctrlp-branches'
-Plug 'hara/ctrlp-colorscheme'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+map <C-n> :NERDTreeToggle<CR>
+
+" Detect indent
+Plug 'tpope/vim-sleuth'
+
+" Comment with gc
+Plug 'tpope/vim-commentary'
 
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
-call plug#end()
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'python': ['pyls'],
+    \ }
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+nnoremap <c-p> :FZF<cr>
 
-map <C-n> :NERDTreeToggle<CR>
-
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" Async
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
-let g:ctrlp_show_hidden = 1
+let g:deoplete#enable_at_startup = 1
 
+" Common langauge syntax
+Plug 'sheerun/vim-polyglot'
 
-let g:ycm_key_list_stop_completion = ['<CR>']
+call plug#end()
 
 function! <SID>StripTrailingWhitespaces()
     let l = line(".")
