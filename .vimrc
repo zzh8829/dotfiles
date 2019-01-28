@@ -4,7 +4,7 @@ set encoding=utf-8
 set background=dark
 colorscheme molokai
 
-let mapleader = "\<Space>"
+let g:mapleader=' '
 
 " Indentation
 filetype plugin indent on
@@ -115,7 +115,20 @@ Plug 'autozimu/LanguageClient-neovim', {
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'python': ['pyls'],
+    \ 'sh': ['bash-language-server', 'start']
     \ }
+let g:LanguageClient_autoStart = 1
+nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+vnoremap <leader>lf :call LanguageClient#textDocument_rangeFormatting()<CR>
+nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -130,6 +143,7 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Common langauge syntax
 Plug 'sheerun/vim-polyglot'
@@ -144,8 +158,4 @@ function! <SID>StripTrailingWhitespaces()
 endfun
 
 autocmd FileType sh,python,c,java,javascript  :call <SID>StripTrailingWhitespaces()
-
-nmap <C-_> <leader>c<Space>
-vmap <C-_> <leader>c<Space>
-
 
