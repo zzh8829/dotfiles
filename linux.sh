@@ -19,7 +19,7 @@ mv $SCMPUFF_TMP/$SCMPUFF_TAR/scmpuff ~/bin
 rm -rf $SCMPUFF_TMP
 
 # neovim
-curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+curl -LO https://github.com/neovim/neovim/releases/download/v0.3.4/nvim.appimage
 chmod u+x nvim.appimage
 mv nvim.appimage ~/bin/nvim
 
