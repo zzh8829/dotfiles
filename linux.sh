@@ -27,3 +27,6 @@ wget https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10
 sudo dpkg -i ripgrep*.deb
 rm ripgrep*.deb
 
+mkdir -p ~/.tmux/plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
