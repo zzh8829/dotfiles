@@ -6,6 +6,10 @@ colorscheme molokai
 
 let g:mapleader=' '
 
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
 " Indentation
 filetype plugin indent on
 set smartindent
@@ -19,10 +23,8 @@ autocmd BufReadPost *
      \ endif
 " Remember info about open buffers on close
 set viminfo^=%
-" Treat long lines as break lines (useful when moving around in them)
-map j gj
-map k gk
 
+set hidden
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
