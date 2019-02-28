@@ -116,6 +116,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'json': ['javascript-typescript-stdio'],
     \ 'python': ['pyls'],
     \ 'sh': ['bash-language-server', 'start']
     \ }
