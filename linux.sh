@@ -23,10 +23,12 @@ curl -LO https://github.com/neovim/neovim/releases/download/v0.3.4/nvim.appimage
 chmod u+x nvim.appimage
 mv nvim.appimage ~/bin/nvim
 
+# rg
 wget https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
 sudo dpkg -i ripgrep*.deb
 rm ripgrep*.deb
 
+# tmux
 mkdir -p ~/.tmux/plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
