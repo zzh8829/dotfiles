@@ -49,30 +49,6 @@ fi
 # Path
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
-if [[ $OS == 'macos' ]]; then
-  # Homebrew
-  export PATH=/usr/local/sbin:$PATH
-
-  # LaTeX
-  export PATH=$PATH:/usr/texbin:/Library/TeX/texbin
-
-  # Racket
-  export PATH=$PATH:/Applications/Racket\ v6.1/bin
-
-  # scripts
-  export PATH=$PATH:~/Repos/config/scripts
-
-  # CUDA
-  export PATH=$PATH:/usr/local/cuda/bin
-
-  # Anaconda
-  export PATH=$PATH:/usr/local/anaconda3/bin
-
-  export CLASSPATH=~/Projects/cs241/pub/classes:$CLASSPATH
-
-  export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
-fi
-
 # Home bin
 export PATH=~/bin:$PATH
 export PATH=~/.local/bin:$PATH
@@ -86,11 +62,29 @@ fi
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+if [[ $OS == 'macos' ]]; then
+  # LaTeX
+  export PATH=$PATH:/usr/texbin:/Library/TeX/texbin
+
+  # Racket
+  export PATH=$PATH:/Applications/Racket\ v6.1/bin
+
+  # scripts
+  export PATH=$PATH:~/Repos/config/scripts
+
+  # CUDA
+  export PATH=$PATH:/usr/local/cuda/bin
+
+  export CLASSPATH=~/Projects/cs241/pub/classes:$CLASSPATH
+
+  export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
+
+  # Link Homebrew casks in `/Applications` rather than `~/Applications`
+  export HOMEBREW_CASK_OPTS="--appdir=/Applications";
+fi
+
 # Virtual Env
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-
-# Link Homebrew casks in `/Applications` rather than `~/Applications`
-export HOMEBREW_CASK_OPTS="--appdir=/Applications";
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then
@@ -271,12 +265,17 @@ function pip-save() {
   pip3 freeze | grep $pkg -i >> requirements.txt
 }
 
-mksecret() {
+function mksecret() {
   python -c "import random,string;print(''.join([random.SystemRandom().choice(\"{}{}\".format(string.ascii_letters, string.digits)) for i in range(64)]))" | pbcopy;
 }
 
-printpath() {
+function printpath() {
   echo $PATH | tr ":" "\n"
+}
+
+function git-dl() {
+  folder=${@/tree\/master/trunk}
+  svn export $folder
 }
 
 # ====================
@@ -314,17 +313,6 @@ if [[ $OS == 'macos' ]]; then
   export LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/extras/CUPTI/lib:/Applications/cuda/lib:$LD_LIBRARY_PATH
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# Anaconda
+[[ -e /usr/local/anaconda3/bin/conda ]] && eval "$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+
