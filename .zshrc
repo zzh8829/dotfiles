@@ -311,8 +311,13 @@ if [[ $OS == 'macos' ]]; then
 
   # Cuda
   export LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/extras/CUPTI/lib:/Applications/cuda/lib:$LD_LIBRARY_PATH
+elif [[ $OS == "linux" ]]; then
+  if [ -e "~/google-cloud-sdk" ]; then
+    source "~/google-cloud-sdk/path.zsh.inc"
+    source "~/google-cloud-sdk/completion.zsh.inc"
+  fi
 fi
 
 # Anaconda
 [[ -e /usr/local/anaconda3/bin/conda ]] && eval "$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-
+[[ -e /usr/local/anaconda3 ]] && . /usr/local/anaconda3/etc/profile.d/conda.sh && conda activate
