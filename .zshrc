@@ -4,6 +4,13 @@ export ZSH=$HOME/.oh-my-zsh
 # Zsh theme
 ZSH_THEME="zihao"
 
+DISABLE_AUTO_TITLE="true"
+function precmd () {
+  HOSTNAME=$(hostname)
+  window_title="\033]0;${HOSTNAME}:${PWD##*/}\007"
+  echo -ne "$window_title"
+}
+
 # OS Detection
 if [[ $(uname) == 'Linux' ]]; then
   export OS=linux

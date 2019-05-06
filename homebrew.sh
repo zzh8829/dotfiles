@@ -43,6 +43,7 @@ brew install ffmpeg
 brew install cmake
 brew install fzf
 brew install ripgrep
+brew install kubernetes-helm
 
 # Install Cask
 brew tap caskroom/cask
@@ -70,4 +71,3 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize we
 
 # Remove outdated versions from the cellar.
 brew cleanup
-
