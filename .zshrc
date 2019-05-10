@@ -4,13 +4,6 @@ export ZSH=$HOME/.oh-my-zsh
 # Zsh theme
 ZSH_THEME="zihao"
 
-DISABLE_AUTO_TITLE="true"
-function precmd () {
-  HOSTNAME=$(hostname)
-  window_title="\033]0;${HOSTNAME}:${PWD##*/}\007"
-  echo -ne "$window_title"
-}
-
 # OS Detection
 if [[ $(uname) == 'Linux' ]]; then
   export OS=linux
@@ -19,6 +12,22 @@ elif [[ $(uname) == 'Darwin' ]]; then
 elif [[ $(uname -r) == *"Microsoft"* ]]; then
   export OS=wsl
 fi
+
+DISABLE_AUTO_TITLE="true"
+function precmd () {
+  HOSTNAME=$(hostname)
+  window_title="\033]0;${HOSTNAME}:${PWD##*/}\007"
+  echo -ne "$window_title"
+}
+
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 
 # Zsh Plugins
 if [[ $OS == 'macos' ]]; then
@@ -307,7 +316,7 @@ fi
 export GPG_TTY=$(tty)
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --ansi'
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 [[ -e ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 if [[ $OS == 'macos' ]]; then
