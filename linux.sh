@@ -10,6 +10,7 @@ mkdir -p ~/bin
 # zsh
 OMZSH_TMP=$(mktemp)
 curl -Lo $OMZSH_TMP https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+rm -rf ~/.oh-my-zsh
 sh $OMZSH_TMP --unattended
 rm $OMZSH_TMP
 

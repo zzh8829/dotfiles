@@ -46,18 +46,6 @@ source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
 
-if type nvim &> /dev/null; then
-  export EDITOR="nvim"
-  alias vim="nvim"
-  alias vi="nvim"
-elif type nvim &> /dev/null; then
-  export EDITOR="nvim"
-  alias vim="nvim"
-  alias vi="nvim"
-else
-  export EDITOR="vi"
-fi
-
 # ======================
 # ==     EXPORTS      ==
 # ======================
@@ -125,6 +113,19 @@ fi
 # ==     ALIASES    ==
 # ====================
 
+if type nvim &> /dev/null; then
+  export EDITOR="nvim"
+elif type vim &> /dev/null; then
+  export EDITOR="vim"
+elif type vi &> /dev/null; then
+  export EDITOR="vi"
+elif type nano &> /dev/null; then
+  export EDITOR="nano"
+fi
+
+alias vim=$EDITOR
+alias vi=$EDITOR
+
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
@@ -189,7 +190,7 @@ alias bell="tput bel"
 alias map="xargs -n1"
 
 # Reload the shell (i.e. invoke as a login shell)
-alias reload="exec $SHELL -l"
+alias reload="exec $(which zsh) -l"
 
 # Git
 alias grim="git rebase -i master"
