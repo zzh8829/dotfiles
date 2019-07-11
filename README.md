@@ -7,6 +7,14 @@
 ```bash
 git clone https://github.com/zzh8829/dotfiles.git && cd dotfiles && source dotfiles.sh
 ```
+
+## Complete Dev Setup (Linux)
+
+```bash
+./linux.sh
+./dotfiles.sh
+```
+
 ## Complete Dev Setup (Mac)
 
 ```

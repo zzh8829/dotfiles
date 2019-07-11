@@ -337,3 +337,9 @@ fi
 # Anaconda
 [[ -e /usr/local/anaconda3/bin/conda ]] && eval "$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 [[ -e /usr/local/anaconda3 ]] && . /usr/local/anaconda3/etc/profile.d/conda.sh && conda activate
+
+# wasmer
+export WASMER_DIR="/Users/zihao/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+
+

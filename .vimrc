@@ -119,7 +119,8 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'json': ['javascript-typescript-stdio'],
     \ 'python': ['pyls'],
-    \ 'sh': ['bash-language-server', 'start']
+    \ 'sh': ['bash-language-server', 'start'],
+    \ 'go': ['go-langserver']
     \ }
 let g:LanguageClient_autoStart = 1
 nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
