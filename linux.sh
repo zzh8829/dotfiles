@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
 sudo apt-get update
-sudo apt-get install build-essential cmake zsh git
+sudo apt-get install -yyq software-properties-common build-essential cmake zsh git
 
 mkdir -p ~/bin
 
@@ -28,9 +28,12 @@ mv $SCMPUFF_TMP/$SCMPUFF_TAR/scmpuff ~/bin
 rm -rf $SCMPUFF_TMP
 
 # neovim
-curl -LO https://github.com/neovim/neovim/releases/download/v0.3.4/nvim.appimage
-chmod u+x nvim.appimage
-mv nvim.appimage ~/bin/nvim
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt-get update
+sudo apt-get install -yyq neovim
+# curl -LO https://github.com/neovim/neovim/releases/download/v0.3.4/nvim.appimage
+# chmod u+x nvim.appimage
+# mv nvim.appimage ~/bin/nvim
 
 # rg
 wget https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb

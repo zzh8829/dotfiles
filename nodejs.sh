@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-yarn global add eslint \
+npm install -g eslint \
 	eslint-config-prettier \
 	http-server \
-	javascript-typescript-langserver 
+	javascript-typescript-langserver
 

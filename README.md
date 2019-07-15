@@ -8,6 +8,19 @@
 git clone https://github.com/zzh8829/dotfiles.git && cd dotfiles && source dotfiles.sh
 ```
 
+## Scripts compatibility chart
+
+|             | linux              | macos              | wsl                |
+|-------------|--------------------|--------------------|--------------------|
+| dotfiles.sh | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| linux.sh    | :heavy_check_mark: |                    | :heavy_check_mark: |
+| macos.sh    |                    | :heavy_check_mark: |                    |
+| vim.sh      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| homebrew.sh |                    | :heavy_check_mark: |                    |
+| nodejs.sh   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| go.sh       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| python.sh   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+
 ## Complete Dev Setup (Linux)
 
 ```bash
