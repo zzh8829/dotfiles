@@ -1,0 +1,26 @@
+<snippet>
+    <content><![CDATA[
+/*
+ID: zzh8829
+PROG: ${TM_FILENAME/(.+)\..+|.*/$1/:name}
+LANG: C++
+*/
+#include <iostream>
+#include <fstream>
+${1:}
+using namespace std;
+${2:}
+int main()
+{
+#ifndef LOCAL
+	ifstream cin("${TM_FILENAME/(.+)\..+|.*/$1/:name}.in");
+	ofstream cout("${TM_FILENAME/(.+)\..+|.*/$1/:name}.out");
+#endif
+	${3:}
+	return 0;
+}
+]]></content>
+    <tabTrigger>usaco</tabTrigger>
+    <scope>source.c++</scope>
+    <description>USACO Templete</description>
+</snippet>
