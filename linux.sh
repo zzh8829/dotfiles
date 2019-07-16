@@ -28,12 +28,14 @@ mv $SCMPUFF_TMP/$SCMPUFF_TAR/scmpuff ~/bin
 rm -rf $SCMPUFF_TMP
 
 # neovim
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt-get update
-sudo apt-get install -yyq neovim
-# curl -LO https://github.com/neovim/neovim/releases/download/v0.3.4/nvim.appimage
-# chmod u+x nvim.appimage
-# mv nvim.appimage ~/bin/nvim
+if ! type nvim &> /dev/null ]]; then
+	sudo add-apt-repository -y ppa:neovim-ppa/stable
+	sudo apt-get update
+	sudo apt-get install -yyq neovim
+	# curl -LO https://github.com/neovim/neovim/releases/download/v0.3.4/nvim.appimage
+	# chmod u+x nvim.appimage
+	# mv nvim.appimage ~/bin/nvim
+fi
 
 # rg
 wget https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
