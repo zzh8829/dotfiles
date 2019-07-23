@@ -20,7 +20,7 @@ git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plu
 
 # scmpuff
 SCMPUFF_TMP=$(mktemp -d)
-SCMPUFF_VER=0.2.1
+SCMPUFF_VER=0.3.0
 SCMPUFF_TAR=scmpuff_${SCMPUFF_VER}_linux_amd64
 
 curl -L https://github.com/mroth/scmpuff/releases/download/v$SCMPUFF_VER/$SCMPUFF_TAR.tar.gz | tar xzv -C $SCMPUFF_TMP

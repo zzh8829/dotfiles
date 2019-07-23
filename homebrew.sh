@@ -21,14 +21,12 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-# Install `wget` with IRI support.
-brew install wget --with-iri
-
 # Install dev
 brew install python
 brew install node
 
 # Install some tools
+brew install wget
 brew install neovim
 brew install tmux
 brew install tig

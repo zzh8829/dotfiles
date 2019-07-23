@@ -1,5 +1,34 @@
 #!/usr/bin/env bash
 
+set -e
+
+mkdir -p ~/bin
+
+# zsh
+OMZSH_TMP=$(mktemp)
+curl -Lo $OMZSH_TMP https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+rm -rf ~/.oh-my-zsh
+sh $OMZSH_TMP --unattended
+rm $OMZSH_TMP
+
+# zsh autosuggestions
+rm -rf ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+# scmpuff
+SCMPUFF_TMP=$(mktemp -d)
+SCMPUFF_VER=0.3.0
+SCMPUFF_TAR=scmpuff_${SCMPUFF_VER}_mac_x64
+
+curl -L https://github.com/mroth/scmpuff/releases/download/v$SCMPUFF_VER/$SCMPUFF_TAR.tar.gz | tar xzv -C $SCMPUFF_TMP
+mv $SCMPUFF_TMP/scmpuff ~/bin
+rm -rf $SCMPUFF_TMP
+
+# tmux
+mkdir -p ~/.tmux/plugins
+rm -rf ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -10,14 +39,12 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo "------------------------------"
 echo "Updating OSX.  If this requires a restart, run the script again."
 # Install all available updates
-sudo softwareupdate -ia --verbose
+
+sudo softwareupdate -ia --verbose || true
 # Install only recommended available updates
 #sudo softwareupdate -irv
 
 echo "------------------------------"
-echo "Installing Xcode Command Line Tools."
-# Install Xcode command line tools
-xcode-select --install
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
@@ -82,7 +109,7 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 
 for app in "Activity Monitor" "Dock" "Finder" "SystemUIServer"; do
-	killall "${app}" > /dev/null 2>&1
+	sudo killall "${app}" > /dev/null 3>&1 || true
 done
 
 echo "Done (some change requires logout)"
