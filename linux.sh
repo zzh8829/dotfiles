@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -xe
 
 sudo apt-get update
 sudo apt-get install -yyq software-properties-common build-essential cmake zsh git
@@ -21,10 +21,10 @@ git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plu
 # scmpuff
 SCMPUFF_TMP=$(mktemp -d)
 SCMPUFF_VER=0.3.0
-SCMPUFF_TAR=scmpuff_${SCMPUFF_VER}_linux_amd64
+SCMPUFF_TAR=scmpuff_${SCMPUFF_VER}_linux_x64
 
 curl -L https://github.com/mroth/scmpuff/releases/download/v$SCMPUFF_VER/$SCMPUFF_TAR.tar.gz | tar xzv -C $SCMPUFF_TMP
-mv $SCMPUFF_TMP/$SCMPUFF_TAR/scmpuff ~/bin
+mv $SCMPUFF_TMP/scmpuff ~/bin
 rm -rf $SCMPUFF_TMP
 
 # neovim
