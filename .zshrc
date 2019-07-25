@@ -204,7 +204,7 @@ alias gsp="git stash pop"
 alias t=tmux
 alias nb="workon py3 && jupyter notebook"
 alias octave="octave --no-gui"
-alias dotf="cd $REPOS/dotfiles && ./dotfiles.sh && cd - && reload"
+alias dotf="cd ~/.dotfiles && ./dotfiles.sh && cd - && reload"
 
 if [[ $OS == 'macos' ]]; then
   alias s="cd $ICLOUD/Study"
