@@ -85,6 +85,8 @@ if [[ $OS == 'macos' ]]; then
 
   # Link Homebrew casks in `/Applications` rather than `~/Applications`
   export HOMEBREW_CASK_OPTS="--appdir=/Applications";
+elif [[ $OS == 'linux' ]]; then
+  [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]] && source $HOME/.nix-profile/etc/profile.d/nix.sh 
 fi
 
 # Virtual Env
