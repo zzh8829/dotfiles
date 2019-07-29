@@ -1,6 +1,8 @@
 # Zihao’s dotfiles
 
 ## Basic Installation
+curl -L https://raw.githubusercontent.com/zzh8829/dotfiles/master/install.sh | sh
+
 
 ### Using Git and the bootstrap script
 
