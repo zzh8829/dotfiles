@@ -1,14 +1,10 @@
 # Zihao’s dotfiles
 
-## Basic Installation
+## TLDR
 ```bash
-curl -L https://raw.githubusercontent.com/zzh8829/dotfiles/master/install.sh | sh
-```
-
-### Using Git and the bootstrap script
-
-```bash
-git clone https://github.com/zzh8829/dotfiles.git && cd dotfiles && source dotfiles.sh
+curl -L https://zihao.me/dotfiles.sh | sh
+cd ~/.dotfiles
+./your_script.sh
 ```
 
 ## Scripts compatibility chart
