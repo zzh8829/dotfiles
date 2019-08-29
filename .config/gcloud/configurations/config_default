@@ -1,0 +1,7 @@
+[core]
+account = zzh8829@gmail.com
+project = gcloud-zihao
+
+[compute]
+zone = us-west1-a
+region = us-west1

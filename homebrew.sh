@@ -42,6 +42,7 @@ brew install cmake
 brew install fzf
 brew install ripgrep
 brew install kubernetes-helm
+brew install mosh
 
 # Install Cask
 brew tap caskroom/cask

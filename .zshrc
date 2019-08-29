@@ -31,9 +31,9 @@ setopt HIST_VERIFY               # Don't execute immediately upon history expans
 
 # Zsh Plugins
 if [[ $OS == 'macos' ]]; then
-  plugins=(zsh-autosuggestions extract history colorize sublime docker)
+  plugins=(zsh-autosuggestions extract history colorize sublime docker dotenv)
 else
-  plugins=(zsh-autosuggestions extract history)
+  plugins=(zsh-autosuggestions extract history dotenv)
 fi
 
 # User configuration

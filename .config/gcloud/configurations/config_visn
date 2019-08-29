@@ -1,0 +1,7 @@
+[core]
+account = zzh8829@gmail.com
+project = daring-charmer-244215
+
+[compute]
+zone = us-east1-b
+region = us-east1
