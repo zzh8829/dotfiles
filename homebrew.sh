@@ -43,6 +43,7 @@ brew install fzf
 brew install ripgrep
 brew install kubernetes-helm
 brew install mosh
+brew install stow
 
 # Install Cask
 brew tap caskroom/cask
@@ -67,6 +68,9 @@ brew cask install grandperspective
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package quicklookase qlvideo
+
+brew tap homebrew/cask-drivers
+brew cask install logitech-gaming-software
 
 # Remove outdated versions from the cellar.
 brew cleanup
