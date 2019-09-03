@@ -10,7 +10,7 @@
 # 	"$@" \
 # 	. ~/
 
-stow --verbose \
+stow --no-folding --verbose \
 	bin \
 	conda \
 	editorconfig \
