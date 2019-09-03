@@ -96,11 +96,11 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 if ls --color > /dev/null 2>&1; then
   # GNU `ls`
   colorflag="--color"
-  export LS_COLORS='di=1;31:ln=1;31:so=37:pi=1;33:ex=35:bd=37:cd=37:su=37:sg=37:tw=32:ow=32'
+  export LS_COLORS='di=1;31:ln=36:so=37:pi=1;33:ex=35:bd=37:cd=37:su=37:sg=37:tw=32:ow=32'
 else
   # mac `ls`
   colorflag="-G"
-  export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
+  export LSCOLORS='BxgxhxDxfxhxhxhxhxcxcx'
 fi
 
 export REPOS="$HOME/Repos"
