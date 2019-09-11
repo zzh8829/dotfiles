@@ -41,6 +41,7 @@ brew install ffmpeg
 brew install cmake
 brew install fzf
 brew install ripgrep
+brew install jq
 brew install kubernetes-helm
 brew install mosh
 brew install stow
