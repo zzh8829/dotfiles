@@ -91,6 +91,10 @@ if has('nvim')
   let g:python3_host_prog = get(g:, 'python3_host_prog', '/usr/bin/python3')
 endif
 
+if has('pythonx')
+	set pyxversion=3
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -162,5 +166,6 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
+:autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 autocmd FileType sh,python,c,java,javascript  :call <SID>StripTrailingWhitespaces()
 

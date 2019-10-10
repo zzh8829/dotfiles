@@ -271,7 +271,7 @@ function pip-save() {
   pip freeze | grep $pkg -i >> requirements.txt
 }
 
-function pip-save() {
+function pip3-save() {
   local pkg=$1
 
   if [[ -z "$1" ]]; then
@@ -349,3 +349,13 @@ export WASMER_DIR="/Users/zihao/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
 [[ -e ~/.zshrc_extra ]] && source ~/.zshrc_extra
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/zihaz/Repos/mgst-bot/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/zihaz/Repos/mgst-bot/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/zihaz/Repos/mgst-bot/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/zihaz/Repos/mgst-bot/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/zihaz/Repos/mgst-bot/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/zihaz/Repos/mgst-bot/node_modules/tabtab/.completions/slss.zsh
