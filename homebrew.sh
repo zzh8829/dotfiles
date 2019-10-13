@@ -45,6 +45,7 @@ brew install jq
 brew install kubernetes-helm
 brew install mosh
 brew install stow
+brew install youtube-dl
 
 # Install Cask
 brew tap caskroom/cask

@@ -72,6 +72,10 @@ set encoding=utf-8 nobomb
 set binary
 set noeol
 
+" Leader Keys
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+:nnoremap <Leader>f /\<<C-r><C-w>\>
+
 " Automatic commands
 if has("autocmd")
 	" Enable file type detection
@@ -103,6 +107,8 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeChDirMode=2
+let g:NERDTreeShowHidden=1
 
 " For vim-tmux-navigator
 let g:NERDTreeMapJumpPrevSibling=""
@@ -145,7 +151,16 @@ nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-nnoremap <c-p> :FZF<cr>
+" Prevent FZF from opening in nerdtree
+function! FZFOpen(command_str)
+  if (expand('%') =~# 'NERD_tree' && winnr('$') > 1)
+    exe "normal! \<c-w>\<c-w>"
+  endif
+  exe 'normal! ' . a:command_str . "\<cr>"
+endfunction
+
+nnoremap <silent> <C-o> :call FZFOpen(':Buffers')<CR>
+nnoremap <silent> <C-p> :call FZFOpen(':Files')<CR>
 
 " Async
 if has('nvim')
@@ -172,4 +187,3 @@ endfun
 
 :autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 autocmd FileType sh,python,c,java,javascript  :call <SID>StripTrailingWhitespaces()
-
