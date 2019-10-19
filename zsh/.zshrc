@@ -258,6 +258,10 @@ function pingg() {
   ping -c10 google.com
 }
 
+function portquiz() {
+  curl portquiz.net:$1
+}
+
 function pip-save() {
   local pkg=$1
 
@@ -350,12 +354,3 @@ export WASMER_DIR="/Users/zihao/.wasmer"
 
 [[ -e ~/.zshrc_extra ]] && source ~/.zshrc_extra
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/zihaz/Repos/mgst-bot/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/zihaz/Repos/mgst-bot/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/zihaz/Repos/mgst-bot/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/zihaz/Repos/mgst-bot/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/zihaz/Repos/mgst-bot/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/zihaz/Repos/mgst-bot/node_modules/tabtab/.completions/slss.zsh

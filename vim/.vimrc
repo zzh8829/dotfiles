@@ -72,19 +72,26 @@ set encoding=utf-8 nobomb
 set binary
 set noeol
 
+set statusline=
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %p%%
+set statusline+=\ %l/%L:%c
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ \
+
 " Leader Keys
 :nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
-:nnoremap <Leader>f /\<<C-r><C-w>\>
+:nnoremap <Leader>f /\<<C-r><C-w>\><Cr>
+:nnoremap <Leader>ve :e ~/.vimrc<Cr>
+:nnoremap <Leader>vr :source $MYVIMRC<Cr>
 
-" Automatic commands
-if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-	" Treat .md files as Markdown
-	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-endif
+" Auto Reload
+:set autoread | au CursorHold * checktime | call feedkeys("lh")
 
 if has('nvim')
   " Use Homebrew Python on Macs
@@ -109,6 +116,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeChDirMode=2
 let g:NERDTreeShowHidden=1
+let g:NERDTreeMinimalUI=1
 
 " For vim-tmux-navigator
 let g:NERDTreeMapJumpPrevSibling=""
