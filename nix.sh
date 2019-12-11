@@ -6,3 +6,4 @@ source $HOME/.nix-profile/etc/profile.d/nix.sh
 nix-env -i tmux
 nix-env -i neovim 
 nix-env -i jd
+nix-env -i stow
