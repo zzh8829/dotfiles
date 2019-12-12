@@ -9,7 +9,7 @@ elif type apt-get &> /dev/null; then
 	sudo apt-get install -yyq git
 elif type yum &> /dev/null; then
 	sudo yum update
-	sudo yum install git
+	sudo yum install -y git
 else
 	echo "Could not find or install git"
 	exit 1
