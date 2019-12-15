@@ -5,7 +5,7 @@ set -xe
 if type apt-get &> /dev/null; then
 	PM=apt-get
 	sudo apt-get update
-	sudo apt-get install -yyq software-properties-common build-essential cmake zsh git stow
+	sudo apt-get install -yyq software-properties-common build-essential cmake zsh stow
 elif type yum &> /dev/null; then
 	PM=yum
 	sudo yum update
@@ -41,9 +41,9 @@ rm -rf $SCMPUFF_TMP
 # neovim
 if ! type nvim &> /dev/null; then
 	if [[ $PM = 'apt-get' ]]; then
-		sudo add-apt-repository -y ppa:neovim-ppa/stable
-		sudo apt-get update
-		sudo apt-get install -yyq neovim
+		sudo add-apt-repository -y ppa:neovim-ppa/stable && \
+			sudo apt-get update && \
+			sudo apt-get install -yyq neovim
 	fi
 	# curl -LO https://github.com/neovim/neovim/releases/download/v0.3.4/nvim.appimage
 	# chmod u+x nvim.appimage
@@ -53,7 +53,7 @@ fi
 # rg
 if [[ $PM = 'apt-get' ]]; then
 	wget https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
-	sudo dpkg -i ripgrep*.deb
+	sudo dpkg -i ripgrep*.deb || true 
 	rm ripgrep*.deb
 else
 	sudo yum-config-manager --add-repo=https://copr.fedorainfracloud.org/coprs/carlwgeorge/ripgrep/repo/epel-7/carlwgeorge-ripgrep-epel-7.repo
