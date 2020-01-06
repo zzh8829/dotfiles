@@ -96,7 +96,11 @@ set statusline+=\ \
 if has('nvim')
   " Use Homebrew Python on Macs
   if has('macunix')
-    let g:python3_host_prog='/usr/local/bin/python3'
+		if !empty('~/miniconda3/bin/python')
+	let g:python3_host_prog='~/miniconda3/bin/python'
+		else
+	let g:python3_host_prog='/usr/local/bin/python3'
+		endif
   endif
 
   let g:python3_host_prog = get(g:, 'python3_host_prog', '/usr/bin/python3')
