@@ -354,3 +354,5 @@ export WASMER_DIR="/Users/zihao/.wasmer"
 
 [[ -e ~/.zshrc_extra ]] && source ~/.zshrc_extra
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
