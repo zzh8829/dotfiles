@@ -301,6 +301,10 @@ function git-dl() {
   svn export $folder
 }
 
+function portl() {
+  lsof -nP -iTCP:$1
+}
+
 # ====================
 # ==     Other      ==
 # ====================
