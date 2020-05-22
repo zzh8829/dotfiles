@@ -201,6 +201,7 @@ if type tig &> /dev/null; then
 fi
 alias gst="git stash"
 alias gsp="git stash pop"
+alias gdh="git diff HEAD"
 
 # Random stuff
 alias t=tmux
