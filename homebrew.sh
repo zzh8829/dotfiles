@@ -65,7 +65,7 @@ brew cask install spotify
 brew cask install vlc
 brew cask install the-unarchiver
 brew cask install grandperspective
-brew cask install scroll-reverser
+brew cask install steermouse
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package quicklookase qlvideo
