@@ -8,4 +8,4 @@ else
     echo 'Unknonw OS skipping go install'
 fi
 
-go get -u github.com/sourcegraph/go-langserver
+GO111MODULE=on go get golang.org/x/tools/gopls@latest

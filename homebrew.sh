@@ -42,18 +42,16 @@ brew install cmake
 brew install fzf
 brew install ripgrep
 brew install jq
-brew install kubernetes-helm
+brew install helm
 brew install mosh
 brew install stow
 brew install youtube-dl
 
 # Install Cask
-brew tap caskroom/cask
-
 brew cask install visual-studio-code
 brew cask install xquartz
 brew cask install bettertouchtool
-brew cask install postman
+brew cask install insomnia
 brew cask install docker
 brew cask install osxfuse && brew install sshfs
 brew cask install google-cloud-sdk
@@ -72,8 +70,9 @@ brew cask install scroll-reverser
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package quicklookase qlvideo
 
-brew tap homebrew/cask-drivers
-brew cask install logitech-gaming-software
+# brew tap homebrew/cask-drivers
+# brew cask install logitech-gaming-software
+# brew cask install razer-synapse
 
 # Remove outdated versions from the cellar.
 brew cleanup
