@@ -15,6 +15,10 @@ rm $OMZSH_TMP
 rm -rf ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
+# zsh permission
+chmod 755 /usr/local/share/zsh
+chmod 755 /usr/local/share/zsh/site-functions
+
 # scmpuff
 SCMPUFF_TMP=$(mktemp -d)
 SCMPUFF_VER=0.3.0
