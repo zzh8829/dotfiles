@@ -46,6 +46,8 @@ brew install helm
 brew install mosh
 brew install stow
 brew install youtube-dl
+brew install clang-format
+
 
 # Install Cask
 brew cask install visual-studio-code
