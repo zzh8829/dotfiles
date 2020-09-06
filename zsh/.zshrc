@@ -22,7 +22,7 @@ function precmd () {
 
 # Zsh Plugins
 if [[ $OS == 'macos' ]]; then
-  plugins=(zsh-autosuggestions extract history colorize sublime docker dotenv)
+  plugins=(zsh-autosuggestions extract history colorize sublime docker dotenv z)
 else
   plugins=(zsh-autosuggestions extract history dotenv)
 fi
@@ -51,7 +51,7 @@ unsetopt AUTO_CD # Disable cd with folder name
 # ======================
 
 # Path
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # Home bin
 export PATH=~/bin:$PATH
@@ -61,10 +61,6 @@ export PATH=~/.local/bin:$PATH
 if type yarn &> /dev/null; then
   export PATH="$(yarn global bin):$PATH"
 fi
-
-# GO
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
 
 if [[ $OS == 'macos' ]]; then
   # LaTeX
@@ -79,7 +75,7 @@ if [[ $OS == 'macos' ]]; then
   # CUDA
   export PATH=$PATH:/usr/local/cuda/bin
 
-  export CLASSPATH=~/Projects/cs241/pub/classes:$CLASSPATH
+  # export CLASSPATH=~/Projects/cs241/pub/classes:$CLASSPATH
 
   export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
 
@@ -88,6 +84,10 @@ if [[ $OS == 'macos' ]]; then
 elif [[ $OS == 'linux' ]]; then
   [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]] && source $HOME/.nix-profile/etc/profile.d/nix.sh 
 fi
+
+# GO
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 
 # Virtual Env
 export VIRTUAL_ENV_DISABLE_PROMPT=1
