@@ -232,6 +232,14 @@ elif [[ $OS == 'wsl' ]]; then
   alias cd="cd -P"
 fi
 
+# kcd
+function kcd() {
+  cfg=${1:-./kubeconfig.yaml}
+  echo $cfg
+  export KUBECONFIG=$cfg
+  kubectl get nodes
+}
+
 # ====================
 # ==   Functions    ==
 # ====================
@@ -298,8 +306,7 @@ function printpath() {
 }
 
 function git-dl() {
-  folder=${@/tree\/master/trunk}
-  svn export $folder
+  svn export ${@/tree\/master/trunk}
 }
 
 function portl() {
@@ -361,3 +368,12 @@ export WASMER_DIR="/Users/zihao/.wasmer"
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+function looper() {
+  while true; do eval "$@"; done;
+}
+
+function aws-logout() {
+  unset AWS_ACCESS_KEY_ID
+  unset AWS_SECRET_ACCESS_KEY
+}
