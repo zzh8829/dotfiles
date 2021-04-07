@@ -202,7 +202,7 @@ fi
 alias gst="git stash"
 alias gsp="git stash pop"
 alias gdh="git diff HEAD"
-alias gsu="git branch --set-upstream-to origin/$(git rev-parse --abbrev-ref HEAD)"
+alias gsu='git branch --set-upstream-to origin/$(git rev-parse --abbrev-ref HEAD)'
 
 
 # Random stuff
