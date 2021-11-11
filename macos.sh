@@ -120,5 +120,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 bash ./dotfiles.sh
 
+git remote set-url origin git@github.com:zzh8829/dotfiles
+
 echo "Done (some change requires logout)"
 echo "------------------------------"
