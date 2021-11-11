@@ -16,8 +16,8 @@ rm -rf ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 # zsh permission
-chmod 755 /usr/local/share/zsh
-chmod 755 /usr/local/share/zsh/site-functions
+chmod 755 /usr/local/share/zsh || true
+chmod 755 /usr/local/share/zsh/site-functions || true
 
 # scmpuff
 SCMPUFF_TMP=$(mktemp -d)
@@ -115,6 +115,10 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 for app in "Activity Monitor" "Dock" "Finder" "SystemUIServer"; do
 	sudo killall "${app}" > /dev/null 3>&1 || true
 done
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+bash ./dotfiles.sh
 
 echo "Done (some change requires logout)"
 echo "------------------------------"

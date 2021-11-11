@@ -12,8 +12,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Install if we don't have it
 if test ! $(which brew); then
   echo "Installing homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Make sure we’re using the latest Homebrew.
 brew update
@@ -50,34 +52,34 @@ brew install clang-format
 
 
 # Install Cask
-brew cask install visual-studio-code
-brew cask install xquartz
-brew cask install bettertouchtool
-brew cask install insomnia
-brew cask install docker
-brew cask install osxfuse && brew install sshfs
-brew cask install google-cloud-sdk
+brew install --cask visual-studio-code
+brew install --cask xquartz
+brew install --cask bettertouchtool
+brew install --cask insomnia
+brew install --cask docker
+brew install --cask osxfuse && brew install sshfs
+brew install --cask google-cloud-sdk
 
-brew cask install google-chrome
-brew cask install slack
-brew cask install 1password
-brew cask install skim
-brew cask install discord
-brew cask install spotify
-brew cask install vlc
-brew cask install the-unarchiver
-brew cask install grandperspective
-brew cask install steermouse
+brew install --cask google-chrome
+brew install --cask slack
+brew install --cask 1password
+brew install --cask skim
+brew install --cask discord
+brew install --cask spotify
+brew install --cask vlc
+brew install --cask the-unarchiver
+brew install --cask grandperspective
+brew install --cask steermouse
 
-# brew cask install swiftdefaultappsprefpane
-# brwe cask install macs-fan-control
+# brew install --cask swiftdefaultappsprefpane
+# brwe install --cask macs-fan-control
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package quicklookase qlvideo
+brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package quicklookase qlvideo
 
 # brew tap homebrew/cask-drivers
-# brew cask install logitech-gaming-software
-# brew cask install razer-synapse
+# brew install --cask logitech-gaming-software
+# brew install --cask razer-synapse
 
 # Remove outdated versions from the cellar.
 brew cleanup

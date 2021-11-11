@@ -57,6 +57,8 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=~/bin:$PATH
 export PATH=~/.local/bin:$PATH
 
+[ -s "/opt/homebrew/bin/brew" ] && eval $(/opt/homebrew/bin/brew shellenv)
+
 # Yarn
 if type yarn &> /dev/null; then
   export PATH="$(yarn global bin):$PATH"

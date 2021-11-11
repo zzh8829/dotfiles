@@ -118,3 +118,7 @@
 	signingkey = 4B13180EDC826AE5275BF0EB7B98539EAF7105CE
 	email = zzh8829@gmail.com
 	name = Zihao Zhang
+
+[includeIf "gitdir:~/Repos/zeet/"]
+	path = ~/Repos/zeet/.gitconfig
+
