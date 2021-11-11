@@ -379,3 +379,7 @@ function aws-logout() {
   unset AWS_ACCESS_KEY_ID
   unset AWS_SECRET_ACCESS_KEY
 }
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
