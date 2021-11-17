@@ -13,6 +13,7 @@ PACKAGES=(
 	tmux
 	vim
 	zsh
+	rust
 )
 
 for PKG in ${PACKAGES[@]}; do

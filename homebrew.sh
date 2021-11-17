@@ -38,6 +38,7 @@ brew install ssh-copy-id
 brew install ctags
 brew install scmpuff
 brew install gpg
+brew install tmuxinator
 brew install kubectl
 brew install ffmpeg
 brew install cmake
