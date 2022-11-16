@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -53,16 +55,18 @@ unsetopt AUTO_CD # Disable cd with folder name
 # Path
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 
-# Home bin
-export PATH=~/bin:$PATH
-export PATH=~/.local/bin:$PATH
-
+# Homebrew
 [ -s "/opt/homebrew/bin/brew" ] && eval $(/opt/homebrew/bin/brew shellenv)
 
 # Yarn
 if type yarn &> /dev/null; then
   export PATH="$(yarn global bin):$PATH"
 fi
+
+# Home bin
+export PATH=~/bin:$PATH
+export PATH=~/.local/bin:$PATH
+
 
 if [[ $OS == 'macos' ]]; then
   # LaTeX
@@ -250,7 +254,7 @@ function kcd() {
 
 # Use Git’s colored diff when available
 if type git &>/dev/null ; then
-  function diff() {
+  function gd() {
     git diff --no-index --color-words "$@";
   }
 fi
@@ -260,6 +264,18 @@ function server() {
   local port="${1:-8000}";
   sleep 1 && open "http://localhost:${port}/" &
   http-server -p $port
+}
+
+function uptest() {
+  while true; do
+    resp=$(curl -m 3 -sw '%{http_code}\n' $URL -o /dev/null)
+    if [[ $resp != '200' ]]; then
+      echo $(date +%s) $resp
+    else
+      echo $resp
+    fi
+    sleep 0.3
+  done; 
 }
 
 # Run `dig` and display the most useful info
@@ -310,7 +326,7 @@ function printpath() {
 }
 
 function git-dl() {
-  svn export ${@/tree\/master/trunk}
+  svn export ${@/tree\/(master|main)/trunk}
 }
 
 function portl() {
@@ -385,3 +401,20 @@ function aws-logout() {
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bun completions
+[ -s "/Users/zihao/.bun/_bun" ] && source "/Users/zihao/.bun/_bun"
+
+# bun
+export BUN_INSTALL="/Users/zihao/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+[[ -f "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]] && source /opt/homebrew/opt/asdf/libexec/asdf.sh
+

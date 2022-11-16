@@ -14,6 +14,7 @@ PACKAGES=(
 	vim
 	zsh
 	rust
+	asdf
 )
 
 for PKG in ${PACKAGES[@]}; do

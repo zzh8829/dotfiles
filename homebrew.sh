@@ -35,6 +35,7 @@ brew install tig
 brew install p7zip
 brew install speedtest_cli
 brew install ssh-copy-id
+brew install svn
 brew install ctags
 brew install scmpuff
 brew install gpg
