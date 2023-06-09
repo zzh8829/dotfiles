@@ -63,11 +63,6 @@ if type yarn &> /dev/null; then
   export PATH="$(yarn global bin):$PATH"
 fi
 
-# Home bin
-export PATH=~/bin:$PATH
-export PATH=~/.local/bin:$PATH
-
-
 if [[ $OS == 'macos' ]]; then
   # LaTeX
   export PATH=$PATH:/usr/texbin:/Library/TeX/texbin
@@ -94,6 +89,11 @@ fi
 # GO
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
+
+# Home bin
+export PATH=~/bin:$PATH
+export PATH=~/.local/bin:$PATH
+
 
 # Virtual Env
 export VIRTUAL_ENV_DISABLE_PROMPT=1
@@ -177,6 +177,9 @@ else
   alias iplocal="ip address | grep 'inet ' | awk '{print $2}'"
 fi
 
+alias tolower="awk '{print tolower("'$0'")}'"
+alias toupper="awk '{print toupper("'$0'")}'"
+
 # Canonical hex dump; some systems have this symlinked
 command -v hd > /dev/null || alias hd="hexdump -C"
 
@@ -209,7 +212,17 @@ alias gst="git stash"
 alias gsp="git stash pop"
 alias gdh="git diff HEAD"
 alias gsu='git branch --set-upstream-to origin/$(git rev-parse --abbrev-ref HEAD)'
-
+function gld() {
+  git log HEAD...$1 --pretty='format:%cs %an: %s'
+}
+function gbu() {
+  BRANCH=$(git rev-parse --abbrev-ref HEAD)
+  git branch --set-upstream-to=origin/$BRANCH $BRANCH
+}
+function gru() {
+  BRANCH=$(git rev-parse --abbrev-ref HEAD)
+  git fetch && git reset --hard origin/$BRANCH
+}
 
 # Random stuff
 alias t=tmux
@@ -398,6 +411,32 @@ function aws-logout() {
   unset AWS_SECRET_ACCESS_KEY
 }
 
+function awsall {
+  export AWS_PAGER=""
+  if [ `echo "$@"|grep -i '\-\-region'|wc -l` -eq 1 ]
+  then
+    echo "You cannot use --region flag while using awsall"
+    break
+  fi
+
+  regions=`aws ec2 describe-regions --query "Regions[].{Name:RegionName}" --output text | sort -r`
+
+  if [[ $REGION_FILTER != "" ]]; then
+    regions=`echo $regions | grep $REGION_FILTER`
+  fi
+
+  for i in `echo $regions`
+  do
+    echo "------"
+    echo $i
+    echo "------"
+    echo -e "\n"
+    aws $@ --region $i
+    sleep 0.1
+  done
+  trap "break" INT TERM
+}
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -413,8 +452,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-
 [[ -f "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]] && source /opt/homebrew/opt/asdf/libexec/asdf.sh
 
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
