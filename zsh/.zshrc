@@ -437,6 +437,34 @@ function awsall {
   trap "break" INT TERM
 }
 
+add_prefix_to_files() {
+    local prefix=$1
+    shift  # Removes the first argument, shifts all others to the left
+
+    echo "The following files will be renamed:"
+
+    for pattern; do  # Loops over all remaining arguments
+        for file in $pattern; do
+            echo "$file --> $prefix$file"
+        done
+    done
+
+    echo -n "Are you sure you want to continue? [Y/n]: "
+    read confirm
+    confirm=${confirm:l}  # tolower
+
+    if [[ $confirm =~ ^(yes|y)$ || $confirm == "" ]]; then
+        for pattern; do
+            for file in $pattern; do
+                mv -- "$file" "$prefix$file"
+            done
+        done
+        echo "Operation completed."
+    else
+        echo "Operation canceled."
+    fi
+}
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
