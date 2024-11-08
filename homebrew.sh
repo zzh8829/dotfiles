@@ -24,8 +24,10 @@ brew update
 brew upgrade
 
 # Install dev
+brew install asdf
 brew install python
 brew install node
+brew install tfenv
 
 # Install some tools
 brew install wget
@@ -59,13 +61,12 @@ brew install --cask xquartz
 brew install --cask bettertouchtool
 brew install --cask insomnia
 brew install --cask docker
-brew install --cask osxfuse && brew install sshfs
+brew install --cask macfuse && brew install sshfs
 brew install --cask google-cloud-sdk
 
 brew install --cask google-chrome
 brew install --cask slack
 brew install --cask 1password
-brew install --cask skim
 brew install --cask discord
 brew install --cask spotify
 brew install --cask vlc
@@ -77,7 +78,7 @@ brew install --cask steermouse
 # brwe install --cask macs-fan-control
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
-brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package quicklookase qlvideo
+# brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package quicklookase qlvideo
 
 # brew tap homebrew/cask-drivers
 # brew install --cask logitech-gaming-software

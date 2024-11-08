@@ -118,6 +118,7 @@ done
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+rm ~/.zshrc
 bash ./dotfiles.sh
 
 git remote set-url origin git@github.com:zzh8829/dotfiles
