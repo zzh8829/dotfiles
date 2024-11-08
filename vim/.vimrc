@@ -94,7 +94,8 @@ set statusline+=\ \
 :set autoread | au CursorHold * checktime | call feedkeys("lh")
 
 if has('nvim')
-  let g:python3_host_prog = system('echo -n $(which python3)')
+  let g:python3_host_prog = '~/.vim/venv/bin/python3'
+  " let g:python3_host_prog = system('echo -n $(which python3)')
 endif
 
 
@@ -128,30 +129,31 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['javascript-typescript-stdio'],
-    \ 'json': ['javascript-typescript-stdio'],
-    \ 'python': ['pyls'],
-    \ 'sh': ['bash-language-server', 'start'],
-    \ 'go': ['go-langserver']
-    \ }
-let g:LanguageClient_autoStart = 1
-nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-vnoremap <leader>lf :call LanguageClient#textDocument_rangeFormatting()<CR>
-nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
-nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
-nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+Plug 'neovim/nvim-lspconfig'
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
+" let g:LanguageClient_serverCommands = {
+"     \ 'javascript': ['javascript-typescript-stdio'],
+"     \ 'javascript.jsx': ['javascript-typescript-stdio'],
+"     \ 'json': ['javascript-typescript-stdio'],
+"     \ 'python': ['pyls'],
+"     \ 'sh': ['bash-language-server', 'start'],
+"     \ 'go': ['go-langserver']
+"     \ }
+" let g:LanguageClient_autoStart = 1
+" nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+" nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+" vnoremap <leader>lf :call LanguageClient#textDocument_rangeFormatting()<CR>
+" nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+" nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+" nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+" nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+" nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+" nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'

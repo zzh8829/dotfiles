@@ -2,6 +2,11 @@
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-pip3 install neovim
+python3 -m venv ~/.vim/venv
+. ~/.vim/venv/bin/activate
+pip install pynvim
+pip install flake8
 
 vim +PlugInstall +qall > /dev/null
+vim +UpdateRemotePlugins +qall > /dev/null
+
