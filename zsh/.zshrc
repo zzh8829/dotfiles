@@ -222,11 +222,22 @@ function gru() {
   git fetch && git reset --hard origin/$BRANCH
 }
 
+
 # Random stuff
 alias t=tmux
-alias nb="workon py3 && jupyter notebook"
 alias octave="octave --no-gui"
 alias dotf="cd ~/.dotfiles && ./dotfiles.sh && cd - && reload"
+
+# Python
+function venv {
+  if [[ -z "$1" ]]; then
+    echo "usage: venv <env name>"
+    return 1
+  fi
+
+  source ~/.venv/$1/bin/activate
+}
+alias nb="venv py3 && jupyter notebook"
 
 if [[ $OS == 'macos' ]]; then
   alias s="cd $ICLOUD/Study"
