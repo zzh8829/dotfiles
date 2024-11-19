@@ -15,6 +15,10 @@ rm $OMZSH_TMP
 rm -rf ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
+# zsh github copilot
+rm -rf ~/.oh-my-zsh/custom/plugins/zsh-github-copilot
+git clone https://github.com/loiccoyle/zsh-github-copilot.git ~/.oh-my-zsh/custom/plugins/zsh-github-copilot
+
 # zsh permission
 chmod 755 /usr/local/share/zsh || true
 chmod 755 /usr/local/share/zsh/site-functions || true

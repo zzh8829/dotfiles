@@ -22,7 +22,7 @@ function precmd () {
 
 # Zsh Plugins
 if [[ $OS == 'macos' ]]; then
-  plugins=(zsh-autosuggestions extract history colorize sublime docker dotenv z)
+  plugins=(zsh-autosuggestions extract history colorize sublime docker dotenv z zsh-github-copilot)
 else
   plugins=(zsh-autosuggestions extract history dotenv)
 fi
@@ -473,6 +473,9 @@ add_prefix_to_files() {
         echo "Operation canceled."
     fi
 }
+
+# Key binds
+bindkey '^L' zsh_gh_copilot_suggest
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
