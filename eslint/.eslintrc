@@ -8,6 +8,5 @@
     "sourceType": "module",
   },
   "extends": [
-    "prettier"
   ]
 }
