@@ -29,6 +29,9 @@ brew install python
 brew instlal poetry
 brew install node
 brew install tfenv
+brew install svn
+brew install scmpuff
+brew install cmake
 
 # Install some tools
 brew install wget
@@ -38,33 +41,28 @@ brew install tig
 brew install p7zip
 brew install speedtest_cli
 brew install ssh-copy-id
-brew install svn
 brew install ctags
-brew install scmpuff
 brew install gpg
 brew install tmuxinator
 brew install kubectl
 brew install ffmpeg
-brew install cmake
+
 brew install fzf
 brew install ripgrep
 brew install jq
 brew install helm
 brew install mosh
 brew install stow
-brew install youtube-dl
 brew install clang-format
 
 
 # Install Cask
 brew install --cask visual-studio-code
-brew install --cask xquartz
 brew install --cask bettertouchtool
 brew install --cask insomnia
 brew install --cask docker
 brew install --cask macfuse && brew install sshfs
 brew install --cask google-cloud-sdk
-
 brew install --cask google-chrome
 brew install --cask slack
 brew install --cask 1password
@@ -72,8 +70,11 @@ brew install --cask discord
 brew install --cask spotify
 brew install --cask vlc
 brew install --cask the-unarchiver
-brew install --cask grandperspective
 brew install --cask steermouse
+brew install --cask secretive
+
+# brew install --cask xquartz
+# brew install --cask grandperspective
 
 # brew install --cask swiftdefaultappsprefpane
 # brwe install --cask macs-fan-control
