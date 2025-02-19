@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-
+export USER=$(whoami)
 # Zsh theme
 ZSH_THEME="zihao"
 
@@ -22,6 +22,7 @@ function precmd () {
 
 # Zsh Plugins
 if [[ $OS == 'macos' ]]; then
+  export ZSH_GH_COPILOT_NO_CHECK=1
   plugins=(zsh-autosuggestions extract history colorize sublime docker dotenv z zsh-github-copilot)
 else
   plugins=(zsh-autosuggestions extract history dotenv)
@@ -109,7 +110,7 @@ fi
 
 export REPOS="$HOME/Repos"
 if [[ $OS == 'macos' ]]; then
-  export ICLOUD=/Users/zihao/Library/Mobile\ Documents/com\~apple\~CloudDocs/
+  export ICLOUD=/Users/${USER}/Library/Mobile\ Documents/com\~apple\~CloudDocs/
   export PROJECTS="$ICLOUD/Projects"
 else
   export PROJECTS="$HOME/Projects"
@@ -403,7 +404,7 @@ fi
 
 
 # wasmer
-export WASMER_DIR="/Users/zihao/.wasmer"
+export WASMER_DIR="/Users/${USER}/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
 [[ -e ~/.zshrc_extra ]] && source ~/.zshrc_extra
@@ -482,10 +483,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # bun completions
-[ -s "/Users/zihao/.bun/_bun" ] && source "/Users/zihao/.bun/_bun"
+[ -s "/Users/${USER}/.bun/_bun" ] && source "/Users/${USER}/.bun/_bun"
 
 # bun
-export BUN_INSTALL="/Users/zihao/.bun"
+export BUN_INSTALL="/Users/${USER}/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
@@ -493,3 +494,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 [[ -f "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]] && source /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# Secretive Config
+[ -e "/Users/${USER}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh" ] && \
+  export SSH_AUTH_SOCK="/Users/${USER}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
