@@ -18,7 +18,7 @@ fi
 cd ~
 rm -rf ~/.dotfiles
 
-if ssh -T git@github.com 2> /dev/null; [ $? -eq 1]; then
+if ssh -T git@github.com 2> /dev/null; [ $? -eq 1 ]; then
 	git clone git@github.com:zzh8829/dotfiles .dotfiles
 else
 	git clone https://github.com/zzh8829/dotfiles .dotfiles
