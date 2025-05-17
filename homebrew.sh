@@ -26,7 +26,7 @@ brew upgrade
 # Install dev
 brew install asdf
 brew install python
-brew instlal poetry
+brew install poetry
 brew install node
 brew install tfenv
 brew install svn
