@@ -1,4 +1,5 @@
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
-asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
-asdf plugin-add python
+#!/usr/bin/env bash
+# Compatibility entry point; implementation lives in the setup CLI.
+set -euo pipefail
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec bash "$ROOT/setup.sh" install asdf "$@"

@@ -1,0 +1,14 @@
+bin
+conda
+editorconfig
+eslint
+gcloud
+git
+ipython
+matplotlib
+pylint
+tmux
+vim
+zsh
+rust
+asdf

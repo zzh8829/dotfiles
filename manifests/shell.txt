@@ -1,0 +1,7 @@
+# URL|destination relative to HOME
+https://github.com/ohmyzsh/ohmyzsh.git|.oh-my-zsh
+https://github.com/zsh-users/zsh-autosuggestions.git|.oh-my-zsh/custom/plugins/zsh-autosuggestions
+https://github.com/loiccoyle/zsh-github-copilot.git|.oh-my-zsh/custom/plugins/zsh-github-copilot
+https://github.com/tmux-plugins/tpm.git|.tmux/plugins/tpm
+https://github.com/tmux-plugins/tmux-resurrect.git|.tmux/plugins/tmux-resurrect
+https://github.com/tmux-plugins/tmux-continuum.git|.tmux/plugins/tmux-continuum

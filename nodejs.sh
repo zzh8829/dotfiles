@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
-
-npm install -g yarn
-
-yarn global add eslint \
-	eslint-config-prettier \
-	http-server \
-	javascript-typescript-langserver
-
+# Compatibility entry point; implementation lives in the setup CLI.
+set -euo pipefail
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec bash "$ROOT/setup.sh" install node "$@"

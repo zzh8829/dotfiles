@@ -1,4 +1,10 @@
+set nocompatible
 set encoding=utf-8
+
+" Apple's Vim errors on Polyglot's unnamed-buffer detection; use Vim's own.
+if !has('nvim')
+  let g:polyglot_disabled = ['ftdetect']
+endif
 
 " Color Scheme
 set background=dark
@@ -94,7 +100,7 @@ set statusline+=\ \
 :set autoread | au CursorHold * checktime | call feedkeys("lh")
 
 if has('nvim')
-  let g:python3_host_prog = '~/.vim/venv/bin/python3'
+  let g:python3_host_prog = expand('~/.vim/venv/bin/python3')
   " let g:python3_host_prog = system('echo -n $(which python3)')
 endif
 
@@ -126,10 +132,12 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-commentary'
 
 Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
+  \ 'do': 'npm install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
-Plug 'neovim/nvim-lspconfig'
+if has('nvim')
+  Plug 'neovim/nvim-lspconfig'
+endif
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
 "     \ 'do': 'bash install.sh',
@@ -155,7 +163,7 @@ Plug 'neovim/nvim-lspconfig'
 " nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
 " nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 " Prevent FZF from opening in nerdtree
 function! FZFOpen(command_str)

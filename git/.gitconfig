@@ -97,9 +97,10 @@
 
 	insteadOf = "github:"
 
+# HTTPS clones remain usable before SSH is configured.
 [url "ssh://git@github.com/"]
 
-	insteadOf = "https://github.com/"
+	pushInsteadOf = "https://github.com/"
 
 [url "git@gist.github.com:"]
 
@@ -115,10 +116,13 @@
 	defaultBranch = "main"
 
 [user]
-	signingkey = 4B13180EDC826AE5275BF0EB7B98539EAF7105CE
 	email = zzh8829@gmail.com
 	name = Zihao Zhang
 
 [includeIf "gitdir:~/Repos/zeet/"]
 	path = ~/Repos/zeet/.gitconfig
 
+
+# Machine-specific signing keys and other private overrides.
+[include]
+	path = ~/.gitconfig.local

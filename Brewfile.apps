@@ -1,0 +1,14 @@
+# Optional applications and utilities; existing installations are preserved.
+tap "teamookla/speedtest"
+brew "teamookla/speedtest/speedtest"
+
+cask "visual-studio-code"
+cask "docker-desktop"
+cask "gcloud-cli"
+cask "1password"
+cask "discord"
+cask "spotify"
+cask "vlc"
+cask "the-unarchiver"
+cask "steermouse"
+cask "secretive"

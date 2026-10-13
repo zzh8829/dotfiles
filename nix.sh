@@ -1,9 +1,5 @@
-sudo mkdir -m 0755 /nix && sudo chown $USER /nix
-curl https://nixos.org/nix/install | sh
-
-source $HOME/.nix-profile/etc/profile.d/nix.sh
-
-nix-env -i tmux
-nix-env -i neovim 
-nix-env -i jd
-nix-env -i stow
+#!/usr/bin/env bash
+# Compatibility entry point; implementation lives in the setup CLI.
+set -euo pipefail
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec bash "$ROOT/setup.sh" install nix "$@"

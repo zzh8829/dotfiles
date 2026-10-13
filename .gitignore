@@ -11,3 +11,25 @@ Thumbs.db
 .Trashes
 
 gcloud/.config/gcloud/configurations/config_*
+
+# Machine-local credentials and private key material
+.env
+.env.*
+!.env.example
+.gitconfig.local
+.zshrc_extra
+.ssh/
+.gnupg/
+.aws/
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+gcloud/.config/gcloud/credentials.db
+gcloud/.config/gcloud/access_tokens.db
+gcloud/.config/gcloud/application_default_credentials.json
+
+# Python test artifacts
+__pycache__/
+*.pyc

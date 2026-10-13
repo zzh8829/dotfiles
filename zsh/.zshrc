@@ -34,7 +34,7 @@ if [[ $OS == 'wsl' ]]; then
   export ZSH_DISABLE_COMPFIX=true
 fi
 
-source $ZSH/oh-my-zsh.sh
+[[ -f "$ZSH/oh-my-zsh.sh" ]] && source "$ZSH/oh-my-zsh.sh"
 
 export LANG=en_US.UTF-8
 
@@ -52,10 +52,11 @@ unsetopt AUTO_CD # Disable cd with folder name
 # ======================
 
 # Path
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+typeset -U path PATH
+path=(/usr/local/bin /usr/local/sbin $path)
 
 # Homebrew
-[ -s "/opt/homebrew/bin/brew" ] && eval $(/opt/homebrew/bin/brew shellenv)
+[ -s "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Yarn
 if type yarn &> /dev/null; then
@@ -407,6 +408,12 @@ fi
 export WASMER_DIR="/Users/${USER}/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
+# Google Cloud CLI's current Homebrew cask location.
+if [[ -n "$HOMEBREW_PREFIX" && -d "$HOMEBREW_PREFIX/share/google-cloud-sdk" ]]; then
+  source "$HOMEBREW_PREFIX/share/google-cloud-sdk/path.zsh.inc"
+  source "$HOMEBREW_PREFIX/share/google-cloud-sdk/completion.zsh.inc"
+fi
+
 [[ -e ~/.zshrc_extra ]] && source ~/.zshrc_extra
 
 
@@ -476,7 +483,7 @@ add_prefix_to_files() {
 }
 
 # Key binds
-bindkey '^L' zsh_gh_copilot_suggest
+(( $+functions[zsh_gh_copilot_suggest] )) && bindkey '^L' zsh_gh_copilot_suggest
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -498,3 +505,15 @@ export NVM_DIR="$HOME/.nvm"
 # Secretive Config
 [ -e "/Users/${USER}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh" ] && \
   export SSH_AUTH_SOCK="/Users/${USER}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
+
+# Current asdf uses shims rather than the legacy asdf.sh bootstrap.
+[[ -d "${ASDF_DATA_DIR:-$HOME/.asdf}/shims" ]] && path=("${ASDF_DATA_DIR:-$HOME/.asdf}/shims" $path)
+
+# A missing optional integration should not make shell startup fail.
+true
+
+# Let GPG attach passphrase requests to the current interactive terminal.
+if [[ -t 0 ]]; then
+  export GPG_TTY="$(tty)"
+fi
+true

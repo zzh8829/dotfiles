@@ -1,0 +1,3 @@
+# Optional GPG commit signing and macOS passphrase dialog.
+brew "gnupg"
+brew "pinentry-mac"
