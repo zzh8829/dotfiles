@@ -9,6 +9,12 @@ defaults write .GlobalPreferences com.apple.mouse.scaling -1
 defaults -currentHost write -globalDomain NSStatusItemSpacing -int 8
 defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 6
 
+## Writing Tools
+
+# Disable the lightweight UI feature flag (requires administrator access).
+sudo mkdir -p /Library/Preferences/FeatureFlags/Domain
+sudo defaults write /Library/Preferences/FeatureFlags/Domain/WritingTools LightweightUI_macOS -dict Enabled -bool false
+
 ## Finder
 
 # Finder: show all filename extensions
